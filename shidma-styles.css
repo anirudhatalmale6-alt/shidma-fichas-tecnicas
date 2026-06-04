@@ -547,3 +547,35 @@
   .sh-footer-grid { grid-template-columns: 1fr; gap: 32px; }
   .sh-cta-btns { flex-direction: column; align-items: center; }
 }
+/* ═══ WordPress Overrides ═══ */
+.entry-content, .site-content, .ast-container { max-width: 100% !important; padding: 0 !important; }
+.sh-home .entry-content { max-width: 100% !important; }
+article.page { max-width: 100% !important; }
+.ast-plain-container .site-content > .ast-container { max-width: 100% !important; }
+
+/* Fix hero image - use clean product photo properly */
+.sh-hero-img-wrap img {
+  max-width: 480px !important;
+  width: 100% !important;
+  height: auto !important;
+  object-fit: contain !important;
+  border-radius: 8px;
+}
+
+/* Fix SVG icons not to be oversized */
+.sh-hero-badge svg { width: 14px !important; height: 14px !important; display: inline-block !important; }
+.sh-btn svg { width: 20px !important; height: 20px !important; display: inline-block !important; }
+.sh-feature-icon svg { width: 26px !important; height: 26px !important; }
+.sh-footer-contact svg { width: 18px !important; height: 18px !important; }
+.sh-social svg { width: 18px !important; height: 18px !important; }
+
+/* Ensure product cards have consistent image heights */
+.sh-product-card img {
+  height: 200px !important;
+  object-fit: contain !important;
+  margin: 0 auto 20px !important;
+}
+
+/* Fix Astra canvas template spacing */
+body.elementor-template-canvas .sh-home { margin: 0; padding: 0; }
+body.elementor-template-canvas #content { padding: 0 !important; }
