@@ -35,10 +35,10 @@
   background: var(--sh-navy);
   background: linear-gradient(165deg, var(--sh-navy-deep) 0%, var(--sh-navy) 50%, var(--sh-navy-light) 100%);
   color: var(--sh-white);
-  padding: 80px 0 0;
+  padding: 30px 0 20px;
   position: relative;
   overflow: hidden;
-  min-height: 85vh;
+  min-height: auto;
   display: flex;
   align-items: center;
 }
@@ -65,7 +65,7 @@
 .sh-hero-inner {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 60px;
+  gap: 30px;
   align-items: center;
   max-width: 1200px;
   margin: 0 auto;
@@ -83,16 +83,16 @@
   font-weight: 500;
   letter-spacing: 0.05em;
   color: var(--sh-gold-light);
-  margin-bottom: 28px;
+  margin-bottom: 14px;
 }
 .sh-hero-badge svg { width: 14px; height: 14px; fill: var(--sh-gold-light); }
 .sh-hero h1 {
   font-family: 'DM Sans', sans-serif;
-  font-size: clamp(2.4rem, 4.5vw, 3.6rem);
+  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
   font-weight: 700;
   line-height: 1.08;
   letter-spacing: -0.03em;
-  margin-bottom: 24px;
+  margin-bottom: 14px;
 }
 .sh-hero h1 em {
   font-family: 'Instrument Serif', Georgia, serif;
@@ -101,18 +101,18 @@
   color: var(--sh-gold-light);
 }
 .sh-hero-sub {
-  font-size: 1.05rem;
-  line-height: 1.7;
+  font-size: 0.9rem;
+  line-height: 1.6;
   color: rgba(255,255,255,0.7);
-  max-width: 480px;
-  margin-bottom: 36px;
+  max-width: 440px;
+  margin-bottom: 20px;
 }
 .sh-hero-btns { display: flex; gap: 16px; flex-wrap: wrap; }
 .sh-btn {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  padding: 16px 32px;
+  padding: 12px 24px;
   border-radius: 8px;
   font-family: 'DM Sans', sans-serif;
   font-size: 0.95rem;
@@ -147,9 +147,12 @@
 }
 .sh-hero-img-wrap img {
   width: 100%;
-  max-width: 520px;
-  filter: drop-shadow(0 30px 60px rgba(0,0,0,0.4));
+  max-width: 260px;
+  filter: drop-shadow(0 20px 40px rgba(0,0,0,0.5));
   animation: sh-float 6s ease-in-out infinite;
+  mix-blend-mode: multiply;
+  border-radius: 0;
+  background: transparent;
 }
 @keyframes sh-float {
   0%, 100% { transform: translateY(0); }
@@ -157,8 +160,8 @@
 }
 .sh-hero-stat {
   position: absolute;
-  bottom: 10%;
-  right: -10px;
+  bottom: 5%;
+  right: 10px;
   background: rgba(255,255,255,0.1);
   backdrop-filter: blur(16px);
   border: 1px solid rgba(255,255,255,0.15);
@@ -168,7 +171,7 @@
 }
 .sh-hero-stat strong {
   display: block;
-  font-size: 1.8rem;
+  font-size: 1.3rem;
   font-weight: 700;
   color: var(--sh-gold-light);
   line-height: 1;
@@ -179,7 +182,7 @@
    PRODUCTS
    ═══════════════════════════════════════════ */
 .sh-products {
-  padding: 100px 0;
+  padding: 60px 0;
   background: var(--sh-white);
 }
 .sh-section-head { text-align: center; margin-bottom: 60px; }
@@ -536,7 +539,7 @@
   .sh-footer-grid { grid-template-columns: 1fr 1fr; }
 }
 @media (max-width: 640px) {
-  .sh-hero { min-height: auto; padding: 60px 0 40px; }
+  .sh-hero { min-height: auto; padding: 30px 0 20px; }
   .sh-products-grid { grid-template-columns: 1fr; }
   .sh-products-row2 { grid-template-columns: 1fr; }
   .sh-features { grid-template-columns: 1fr; }
@@ -555,11 +558,13 @@ article.page { max-width: 100% !important; }
 
 /* Fix hero image - use clean product photo properly */
 .sh-hero-img-wrap img {
-  max-width: 480px !important;
+  max-width: 260px !important;
   width: 100% !important;
   height: auto !important;
   object-fit: contain !important;
-  border-radius: 8px;
+  border-radius: 0 !important;
+  mix-blend-mode: multiply !important;
+  background: transparent !important;
 }
 
 /* Fix SVG icons not to be oversized */
@@ -579,3 +584,225 @@ article.page { max-width: 100% !important; }
 /* Fix Astra canvas template spacing */
 body.elementor-template-canvas .sh-home { margin: 0; padding: 0; }
 body.elementor-template-canvas #content { padding: 0 !important; }
+
+/* ═══ WhatsApp Floating Button ═══ */
+.sh-wa-float {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #25d366;
+  color: #fff;
+  padding: 14px 24px;
+  border-radius: 50px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  box-shadow: 0 4px 20px rgba(37,211,102,0.4);
+  transition: all 0.3s;
+  text-decoration: none;
+  animation: sh-pulse 2s ease-in-out infinite;
+}
+.sh-wa-float:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 28px rgba(37,211,102,0.5);
+  color: #fff;
+}
+.sh-wa-float svg { width: 24px; height: 24px; fill: #fff; }
+@keyframes sh-pulse {
+  0%, 100% { box-shadow: 0 4px 20px rgba(37,211,102,0.4); }
+  50% { box-shadow: 0 4px 30px rgba(37,211,102,0.6); }
+}
+@media (max-width: 640px) {
+  .sh-wa-float span { display: none; }
+  .sh-wa-float { padding: 16px; border-radius: 50%; }
+}
+
+/* ═══ Product Page Styles ═══ */
+.sh-prod-hero {
+  padding: 50px 0;
+  background: var(--sh-white);
+}
+.sh-prod-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: start;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+.sh-prod-gallery img {
+  width: 100%;
+  border-radius: 12px;
+  margin-bottom: 12px;
+}
+.sh-prod-thumbs {
+  display: flex;
+  gap: 8px;
+}
+.sh-prod-thumbs img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 2px solid var(--sh-border);
+  cursor: pointer;
+  transition: border-color 0.3s;
+}
+.sh-prod-thumbs img:hover { border-color: var(--sh-navy); }
+.sh-prod-info h1 {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--sh-text);
+  margin-bottom: 8px;
+}
+.sh-prod-price {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--sh-navy);
+  margin-bottom: 8px;
+}
+.sh-prod-stock {
+  font-size: 0.88rem;
+  color: var(--sh-green-dark);
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+.sh-prod-social {
+  font-size: 0.85rem;
+  color: var(--sh-muted);
+  margin-bottom: 16px;
+}
+.sh-prod-stars {
+  color: var(--sh-gold);
+  font-size: 1.1rem;
+  margin-bottom: 16px;
+  letter-spacing: 2px;
+}
+.sh-prod-delivery {
+  background: var(--sh-light);
+  border-radius: 10px;
+  padding: 14px 18px;
+  margin-bottom: 20px;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.sh-prod-cta {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+.sh-prod-ficha {
+  font-size: 0.88rem;
+  color: var(--sh-navy);
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Specs section */
+.sh-prod-specs {
+  padding: 60px 0;
+  background: var(--sh-light);
+}
+.sh-prod-specs-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+.sh-prod-specs-list {
+  list-style: none;
+  padding: 0;
+}
+.sh-prod-specs-list li {
+  padding: 10px 0;
+  border-bottom: 1px solid var(--sh-border);
+  font-size: 0.92rem;
+  color: var(--sh-body);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.sh-prod-specs-list li::before {
+  content: '✓';
+  color: var(--sh-navy);
+  font-weight: 700;
+  font-size: 0.85rem;
+}
+.sh-prod-features {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.sh-prod-feat-item {
+  background: var(--sh-white);
+  border: 1px solid var(--sh-border);
+  border-radius: 10px;
+  padding: 16px;
+  text-align: center;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--sh-text);
+}
+
+/* Volume pricing */
+.sh-prod-pricing {
+  padding: 60px 0;
+  background: var(--sh-white);
+}
+.sh-prod-pricing-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+.sh-prod-pricing-card {
+  border: 2px solid var(--sh-border);
+  border-radius: 14px;
+  padding: 28px 20px;
+  text-align: center;
+  transition: all 0.3s;
+}
+.sh-prod-pricing-card.sh-featured {
+  border-color: var(--sh-navy);
+  background: var(--sh-light);
+  transform: scale(1.05);
+}
+.sh-prod-pricing-card h4 {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--sh-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 8px;
+}
+.sh-prod-pricing-card .sh-price-big {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--sh-navy);
+}
+.sh-prod-pricing-card .sh-price-unit {
+  font-size: 0.85rem;
+  color: var(--sh-body);
+}
+
+@media (max-width: 768px) {
+  .sh-prod-grid { grid-template-columns: 1fr; }
+  .sh-prod-specs-grid { grid-template-columns: 1fr; }
+  .sh-prod-pricing-cards { grid-template-columns: 1fr; }
+  .sh-prod-features { grid-template-columns: 1fr 1fr; }
+}
